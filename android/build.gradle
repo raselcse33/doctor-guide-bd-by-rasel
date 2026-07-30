@@ -11,14 +11,14 @@ subprojects {
 }
 
 // Ensure all library subprojects (printing, share_plus, path_provider, etc.)
-// compile against Android API 34.
-// NOTE: The app build.gradle already sets compileSdk 34 for :app.
+// compile against Android API 36.
+// NOTE: The app build.gradle already sets compileSdk 36 for :app.
 subprojects {
     plugins.withId("com.android.library") {
-        android.compileSdk = 34
+        android.compileSdk = 36
     }
     plugins.withId("com.android.application") {
-        android.compileSdk = 34
+        android.compileSdk = 36
     }
 }
 
