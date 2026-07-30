@@ -10,14 +10,17 @@ subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 
-// Ensure all Android subproject plugins (printing, share_plus, etc.) compile against API 34
+// Ensure all subproject plugins (printing, share_plus, path_provider, etc.)
+// compile against Android API 34 using safe plugin listener hooks.
 subprojects {
-    afterEvaluate { subproject ->
-        if (subproject.plugins.hasPlugin('com.android.application') ||
-            subproject.plugins.hasPlugin('com.android.library')) {
-            subproject.android {
-                compileSdkVersion 34
-            }
+    plugins.withId("com.android.application") {
+        android {
+            compileSdkVersion 34
+        }
+    }
+    plugins.withId("com.android.library") {
+        android {
+            compileSdkVersion 34
         }
     }
 }
