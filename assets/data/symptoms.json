@@ -1,0 +1,216 @@
+{
+  "bodyParts": [
+    { "id": "head", "nameEn": "Head", "nameBn": "মাথা", "icon": "head" },
+    { "id": "eye", "nameEn": "Eye", "nameBn": "চোখ", "icon": "eye" },
+    { "id": "ent", "nameEn": "ENT (Ear/Nose/Throat)", "nameBn": "কান-নাক-গলা", "icon": "ent" },
+    { "id": "chest", "nameEn": "Chest", "nameBn": "বুক", "icon": "chest" },
+    { "id": "abdomen", "nameEn": "Abdomen", "nameBn": "পেট", "icon": "abdomen" },
+    { "id": "skin", "nameEn": "Skin", "nameBn": "ত্বক", "icon": "skin" },
+    { "id": "bone_joint", "nameEn": "Bone / Joint", "nameBn": "হাড়-জোড়া", "icon": "bone" },
+    { "id": "mental", "nameEn": "Mood / Mental Health", "nameBn": "মানসিক স্বাস্থ্য", "icon": "mental" },
+    { "id": "child", "nameEn": "Child Health", "nameBn": "শিশু স্বাস্থ্য", "icon": "child" },
+    { "id": "women", "nameEn": "Women's Health", "nameBn": "নারী স্বাস্থ্য", "icon": "women" },
+    { "id": "urinary", "nameEn": "Urinary", "nameBn": "মূত্রতন্ত্র", "icon": "urinary" },
+    { "id": "general", "nameEn": "General / Whole Body", "nameBn": "সাধারণ", "icon": "general" }
+  ],
+
+  "durationOptions": [
+    { "id": "today", "labelEn": "Today", "labelBn": "আজকে শুরু হয়েছে" },
+    { "id": "3_days", "labelEn": "3 days", "labelBn": "৩ দিন" },
+    { "id": "1_week", "labelEn": "1 week", "labelBn": "১ সপ্তাহ" },
+    { "id": "1_month", "labelEn": "1 month or more", "labelBn": "১ মাস বা তার বেশি" }
+  ],
+
+  "symptoms": [
+    {
+      "id": "chest_pain_severe",
+      "bodyPartId": "chest",
+      "nameEn": "Severe chest pain / pressure",
+      "nameBn": "তীব্র বুকে ব্যথা / চাপ অনুভব",
+      "isEmergency": true,
+      "emergencyNoteEn": "This can be a heart attack warning sign. Go to the nearest hospital emergency department immediately.",
+      "emergencyNoteBn": "এটি হার্ট অ্যাটাকের লক্ষণ হতে পারে। এখনই নিকটস্থ হাসপাতালের জরুরি বিভাগে যান।",
+      "specialistMap": [
+        { "specialistId": "cardiology", "stars": 5 },
+        { "specialistId": "medicine", "stars": 3 }
+      ]
+    },
+    {
+      "id": "breathing_difficulty",
+      "bodyPartId": "chest",
+      "nameEn": "Sudden difficulty breathing",
+      "nameBn": "হঠাৎ শ্বাসকষ্ট",
+      "isEmergency": true,
+      "emergencyNoteEn": "Breathing difficulty can be life-threatening. Seek emergency care right away.",
+      "emergencyNoteBn": "শ্বাসকষ্ট জীবনের জন্য ঝুঁকিপূর্ণ হতে পারে। দ্রুত জরুরি বিভাগে যান।",
+      "specialistMap": [
+        { "specialistId": "pulmonology", "stars": 5 },
+        { "specialistId": "cardiology", "stars": 4 },
+        { "specialistId": "medicine", "stars": 3 }
+      ]
+    },
+    {
+      "id": "mild_chest_discomfort",
+      "bodyPartId": "chest",
+      "nameEn": "Mild, occasional chest discomfort",
+      "nameBn": "মৃদু, মাঝে মাঝে বুকে অস্বস্তি",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "medicine", "stars": 4 },
+        { "specialistId": "cardiology", "stars": 3 }
+      ]
+    },
+    {
+      "id": "persistent_headache",
+      "bodyPartId": "head",
+      "nameEn": "Persistent headache",
+      "nameBn": "দীর্ঘস্থায়ী মাথাব্যথা",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "neurology", "stars": 4 },
+        { "specialistId": "medicine", "stars": 3 }
+      ]
+    },
+    {
+      "id": "sudden_severe_headache",
+      "bodyPartId": "head",
+      "nameEn": "Sudden 'worst-ever' headache",
+      "nameBn": "হঠাৎ 'জীবনের সবচেয়ে খারাপ' মাথাব্যথা",
+      "isEmergency": true,
+      "emergencyNoteEn": "A sudden, extremely severe headache can signal a serious brain condition. Go to the ER now.",
+      "emergencyNoteBn": "হঠাৎ তীব্র মাথাব্যথা মস্তিষ্কের গুরুতর সমস্যার লক্ষণ হতে পারে। এখনই জরুরি বিভাগে যান।",
+      "specialistMap": [
+        { "specialistId": "neurology", "stars": 5 }
+      ]
+    },
+    {
+      "id": "blurry_vision",
+      "bodyPartId": "eye",
+      "nameEn": "Blurry or reduced vision",
+      "nameBn": "ঝাপসা বা কমে যাওয়া দৃষ্টি",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "ophthalmology", "stars": 5 }
+      ]
+    },
+    {
+      "id": "red_painful_eye",
+      "bodyPartId": "eye",
+      "nameEn": "Red, painful eye with vision loss",
+      "nameBn": "লাল, ব্যথাযুক্ত চোখ এবং দৃষ্টি কমে যাওয়া",
+      "isEmergency": true,
+      "emergencyNoteEn": "Sudden vision loss with pain needs urgent eye emergency care.",
+      "emergencyNoteBn": "ব্যথাসহ হঠাৎ দৃষ্টি কমে যাওয়া জরুরি চোখের চিকিৎসা প্রয়োজন।",
+      "specialistMap": [
+        { "specialistId": "ophthalmology", "stars": 5 }
+      ]
+    },
+    {
+      "id": "sore_throat",
+      "bodyPartId": "ent",
+      "nameEn": "Sore throat / ear pain",
+      "nameBn": "গলা ব্যথা / কানে ব্যথা",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "ent", "stars": 5 },
+        { "specialistId": "medicine", "stars": 2 }
+      ]
+    },
+    {
+      "id": "severe_abdominal_pain",
+      "bodyPartId": "abdomen",
+      "nameEn": "Severe abdominal pain",
+      "nameBn": "তীব্র পেটব্যথা",
+      "isEmergency": true,
+      "emergencyNoteEn": "Severe, sudden abdominal pain can indicate a surgical emergency (e.g. appendicitis). Go to the ER.",
+      "emergencyNoteBn": "তীব্র, হঠাৎ পেটব্যথা জরুরি অস্ত্রোপচারের প্রয়োজন হতে পারে (যেমন অ্যাপেন্ডিসাইটিস)। জরুরি বিভাগে যান।",
+      "specialistMap": [
+        { "specialistId": "surgery", "stars": 5 },
+        { "specialistId": "gastroenterology", "stars": 3 }
+      ]
+    },
+    {
+      "id": "mild_stomach_pain",
+      "bodyPartId": "abdomen",
+      "nameEn": "Mild stomach pain / indigestion",
+      "nameBn": "মৃদু পেটব্যথা / বদহজম",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "gastroenterology", "stars": 4 },
+        { "specialistId": "medicine", "stars": 3 }
+      ]
+    },
+    {
+      "id": "skin_rash",
+      "bodyPartId": "skin",
+      "nameEn": "Rash / itching",
+      "nameBn": "চুলকানি / র‍্যাশ",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "dermatology", "stars": 5 }
+      ]
+    },
+    {
+      "id": "joint_pain",
+      "bodyPartId": "bone_joint",
+      "nameEn": "Joint pain / swelling",
+      "nameBn": "জোড়ায় ব্যথা / ফোলা",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "orthopedics", "stars": 4 },
+        { "specialistId": "rheumatology", "stars": 3 }
+      ]
+    },
+    {
+      "id": "low_mood",
+      "bodyPartId": "mental",
+      "nameEn": "Persistent low mood / anxiety",
+      "nameBn": "দীর্ঘস্থায়ী মন খারাপ / উদ্বেগ",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "psychiatry", "stars": 5 }
+      ]
+    },
+    {
+      "id": "child_fever",
+      "bodyPartId": "child",
+      "nameEn": "Fever / illness in a child",
+      "nameBn": "শিশুর জ্বর / অসুস্থতা",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "pediatrics", "stars": 5 }
+      ]
+    },
+    {
+      "id": "pregnancy_concern",
+      "bodyPartId": "women",
+      "nameEn": "Pregnancy-related concern",
+      "nameBn": "গর্ভাবস্থা সংক্রান্ত সমস্যা",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "gynecology", "stars": 5 }
+      ]
+    },
+    {
+      "id": "painful_urination",
+      "bodyPartId": "urinary",
+      "nameEn": "Painful or frequent urination",
+      "nameBn": "প্রস্রাবে ব্যথা বা ঘন ঘন প্রস্রাব",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "urology", "stars": 5 },
+        { "specialistId": "medicine", "stars": 2 }
+      ]
+    },
+    {
+      "id": "general_weakness",
+      "bodyPartId": "general",
+      "nameEn": "General weakness / fatigue",
+      "nameBn": "সাধারণ দুর্বলতা / ক্লান্তি",
+      "isEmergency": false,
+      "specialistMap": [
+        { "specialistId": "medicine", "stars": 5 }
+      ]
+    }
+  ]
+}

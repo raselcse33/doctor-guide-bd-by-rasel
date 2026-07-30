@@ -1,0 +1,109 @@
+{
+  "specialists": [
+    {
+      "id": "cardiology",
+      "nameEn": "Cardiology",
+      "nameBn": "হৃদরোগ বিশেষজ্ঞ",
+      "descriptionBn": "হৃদযন্ত্র ও রক্তনালী সংক্রান্ত সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "বুকে ব্যথা, শ্বাসকষ্ট, হৃদস্পন্দনের অনিয়ম হলে দেখান।"
+    },
+    {
+      "id": "pulmonology",
+      "nameEn": "Pulmonology (Chest / Lung)",
+      "nameBn": "বক্ষব্যাধি বিশেষজ্ঞ",
+      "descriptionBn": "ফুসফুস ও শ্বাসতন্ত্রের সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "দীর্ঘস্থায়ী কাশি, শ্বাসকষ্ট, হাঁপানি হলে দেখান।"
+    },
+    {
+      "id": "medicine",
+      "nameEn": "Internal Medicine",
+      "nameBn": "মেডিসিন বিশেষজ্ঞ",
+      "descriptionBn": "সাধারণ শারীরিক সমস্যার প্রাথমিক চিকিৎসা করেন।",
+      "whenToVisitBn": "কোন বিশেষজ্ঞের কাছে যেতে হবে তা নিশ্চিত না হলে প্রথমে দেখান।"
+    },
+    {
+      "id": "neurology",
+      "nameEn": "Neurology",
+      "nameBn": "স্নায়ুরোগ বিশেষজ্ঞ",
+      "descriptionBn": "মস্তিষ্ক ও স্নায়ুতন্ত্রের সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "মাথাব্যথা, খিঁচুনি, অবশ ভাব হলে দেখান।"
+    },
+    {
+      "id": "ophthalmology",
+      "nameEn": "Ophthalmology (Eye)",
+      "nameBn": "চক্ষু বিশেষজ্ঞ",
+      "descriptionBn": "চোখ ও দৃষ্টিশক্তি সংক্রান্ত সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "দৃষ্টি ঝাপসা, চোখে ব্যথা বা লালচেভাব হলে দেখান।"
+    },
+    {
+      "id": "ent",
+      "nameEn": "ENT (Ear, Nose, Throat)",
+      "nameBn": "নাক-কান-গলা বিশেষজ্ঞ",
+      "descriptionBn": "কান, নাক ও গলার সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "গলা ব্যথা, কানে ব্যথা, সাইনাসের সমস্যা হলে দেখান।"
+    },
+    {
+      "id": "gastroenterology",
+      "nameEn": "Gastroenterology",
+      "nameBn": "পরিপাকতন্ত্র বিশেষজ্ঞ",
+      "descriptionBn": "পাকস্থলী, অন্ত্র ও লিভারের সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "দীর্ঘস্থায়ী পেটব্যথা, বদহজম, লিভারের সমস্যা হলে দেখান।"
+    },
+    {
+      "id": "surgery",
+      "nameEn": "General Surgery",
+      "nameBn": "সার্জারি বিশেষজ্ঞ",
+      "descriptionBn": "অস্ত্রোপচারের প্রয়োজন হয় এমন সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "তীব্র পেটব্যথা বা জরুরি অস্ত্রোপচারের প্রয়োজন হলে দেখান।"
+    },
+    {
+      "id": "dermatology",
+      "nameEn": "Dermatology (Skin)",
+      "nameBn": "চর্মরোগ বিশেষজ্ঞ",
+      "descriptionBn": "ত্বক, চুল ও নখের সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "র‍্যাশ, চুলকানি, ত্বকের সংক্রমণ হলে দেখান।"
+    },
+    {
+      "id": "orthopedics",
+      "nameEn": "Orthopedics (Bone)",
+      "nameBn": "অর্থোপেডিক বিশেষজ্ঞ",
+      "descriptionBn": "হাড়, জোড়া ও মাংসপেশির সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "হাড় ভাঙা, জোড়ায় ব্যথা, আঘাত পেলে দেখান।"
+    },
+    {
+      "id": "rheumatology",
+      "nameEn": "Rheumatology",
+      "nameBn": "বাত রোগ বিশেষজ্ঞ",
+      "descriptionBn": "বাতজনিত ও প্রদাহজনিত জোড়ার সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "দীর্ঘস্থায়ী জোড়ায় ফোলাভাব ও ব্যথা হলে দেখান।"
+    },
+    {
+      "id": "psychiatry",
+      "nameEn": "Psychiatry",
+      "nameBn": "মানসিক রোগ বিশেষজ্ঞ",
+      "descriptionBn": "মানসিক স্বাস্থ্য সংক্রান্ত সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "দীর্ঘস্থায়ী মন খারাপ, উদ্বেগ, ঘুমের সমস্যা হলে দেখান।"
+    },
+    {
+      "id": "pediatrics",
+      "nameEn": "Pediatrics (Child)",
+      "nameBn": "শিশুরোগ বিশেষজ্ঞ",
+      "descriptionBn": "নবজাতক থেকে কিশোর বয়স পর্যন্ত শিশুদের চিকিৎসা করেন।",
+      "whenToVisitBn": "শিশুর জ্বর, অসুস্থতা বা বৃদ্ধিজনিত সমস্যা হলে দেখান।"
+    },
+    {
+      "id": "gynecology",
+      "nameEn": "Gynecology & Obstetrics",
+      "nameBn": "স্ত্রীরোগ ও প্রসূতি বিশেষজ্ঞ",
+      "descriptionBn": "নারীস্বাস্থ্য ও গর্ভাবস্থা সংক্রান্ত চিকিৎসা করেন।",
+      "whenToVisitBn": "গর্ভাবস্থা, মাসিক সংক্রান্ত সমস্যা হলে দেখান।"
+    },
+    {
+      "id": "urology",
+      "nameEn": "Urology",
+      "nameBn": "মূত্ররোগ বিশেষজ্ঞ",
+      "descriptionBn": "কিডনি ও মূত্রতন্ত্রের সমস্যার চিকিৎসা করেন।",
+      "whenToVisitBn": "প্রস্রাবে ব্যথা, ঘন ঘন প্রস্রাব, কিডনিতে পাথর হলে দেখান।"
+    }
+  ]
+}
