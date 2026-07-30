@@ -1,7 +1,5 @@
 name: Build Android APK
 
-# Runs automatically on every push to main, and can also be triggered
-# manually from the Actions tab ("Run workflow" button).
 on:
   push:
     branches: [main]
@@ -25,48 +23,9 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Generate Android platform files
-        # This project's android/ folder has no native Gradle scaffolding yet
-        # (it was hand-written, not created via `flutter create`). This step
-        # generates it automatically so you never need Flutter installed
-        # on your own computer — everything happens here in the cloud.
-        run: flutter create --platforms=android --project-name=doctor_guide_bd --org=com.doctorguidebd .
-
-      - name: Raise Android compileSdk/targetSdk for plugin compatibility
-        # Some plugins (e.g. printing, share_plus) require compiling against
-        # Android API 34+. Rather than pattern-matching the generated
-        # file's exact syntax (fragile — a template change silently breaks
-        # it), we append our own android{} override block. Both Groovy and
-        # Kotlin DSL allow calling android{} more than once in one file;
-        # the last assignment for each property always wins, so this is
-        # guaranteed to take effect no matter what the template contains.
+      - name: Clean up conflicting Kotlin DSL files if present
         run: |
-          if [ -f android/app/build.gradle.kts ]; then
-            {
-              echo ""
-              echo "android {"
-              echo "    compileSdk = 36"
-              echo "    defaultConfig {"
-              echo "        targetSdk = 36"
-              echo "    }"
-              echo "}"
-            } >> android/app/build.gradle.kts
-            echo "Appended override to build.gradle.kts"
-          elif [ -f android/app/build.gradle ]; then
-            {
-              echo ""
-              echo "android {"
-              echo "    compileSdkVersion 36"
-              echo "    defaultConfig {"
-              echo "        targetSdkVersion 36"
-              echo "    }"
-              echo "}"
-            } >> android/app/build.gradle
-            echo "Appended override to build.gradle"
-          else
-            echo "::error::No android/app/build.gradle(.kts) found — Android scaffolding generation must have failed."
-            exit 1
-          fi
+          rm -f android/build.gradle.kts android/app/build.gradle.kts
 
       - name: Install dependencies
         run: flutter pub get
