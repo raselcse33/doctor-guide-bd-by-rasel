@@ -9,22 +9,23 @@ rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
+// Intercept plugin addition to force compileSdkVersion 34 for all subprojects (printing, share_plus, etc.)
+// BEFORE project evaluation begins.
+subprojects { subproject ->
+    subproject.plugins.whenPluginAdded { plugin ->
+        if (plugin.class.name.startsWith("com.android.build.gradle")) {
+            subproject.android {
+                compileSdkVersion 34
+            }
+        }
+    }
+}
+
 subprojects {
     project.evaluationDependsOn(':app')
 }
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-}
-
-// Global override: Force all subproject plugins (e.g. printing, share_plus, etc.)
-// to use compileSdkVersion 34 to satisfy AndroidX metadata requirements.
-subprojects {
-    afterEvaluate { subproject ->
-        if (subproject.hasProperty('android')) {
-            subproject.android {
-                compileSdkVersion 34
-            }
-        }
-    }
 }
