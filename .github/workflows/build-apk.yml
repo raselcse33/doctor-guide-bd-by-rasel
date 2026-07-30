@@ -42,26 +42,26 @@ jobs:
         # guaranteed to take effect no matter what the template contains.
         run: |
           if [ -f android/app/build.gradle.kts ]; then
-            cat >> android/app/build.gradle.kts << 'EOF'
-
-android {
-    compileSdk = 36
-    defaultConfig {
-        targetSdk = 36
-    }
-}
-EOF
+            {
+              echo ""
+              echo "android {"
+              echo "    compileSdk = 36"
+              echo "    defaultConfig {"
+              echo "        targetSdk = 36"
+              echo "    }"
+              echo "}"
+            } >> android/app/build.gradle.kts
             echo "Appended override to build.gradle.kts"
           elif [ -f android/app/build.gradle ]; then
-            cat >> android/app/build.gradle << 'EOF'
-
-android {
-    compileSdkVersion 36
-    defaultConfig {
-        targetSdkVersion 36
-    }
-}
-EOF
+            {
+              echo ""
+              echo "android {"
+              echo "    compileSdkVersion 36"
+              echo "    defaultConfig {"
+              echo "        targetSdkVersion 36"
+              echo "    }"
+              echo "}"
+            } >> android/app/build.gradle
             echo "Appended override to build.gradle"
           else
             echo "::error::No android/app/build.gradle(.kts) found — Android scaffolding generation must have failed."
