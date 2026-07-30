@@ -14,13 +14,11 @@ subprojects {
 // compile against Android API 34.
 // NOTE: The app build.gradle already sets compileSdk 34 for :app.
 subprojects {
-    afterEvaluate { p ->
-        if (p.plugins.hasPlugin("com.android.library")) {
-            p.android.compileSdk = 34
-        }
-        if (p.plugins.hasPlugin("com.android.application")) {
-            p.android.compileSdk = 34
-        }
+    plugins.withId("com.android.library") {
+        android.compileSdk = 34
+    }
+    plugins.withId("com.android.application") {
+        android.compileSdk = 34
     }
 }
 
