@@ -26,7 +26,47 @@ jobs:
           channel: 'stable'
 
       - name: Generate Android platform files
+        # This project's android/ folder has no native Gradle scaffolding yet
+        # (it was hand-written, not created via `flutter create`). This step
+        # generates it automatically so you never need Flutter installed
+        # on your own computer — everything happens here in the cloud.
         run: flutter create --platforms=android --project-name=doctor_guide_bd --org=com.doctorguidebd .
+
+      - name: Raise Android compileSdk/targetSdk for plugin compatibility
+        # Some plugins (e.g. printing, share_plus) require compiling against
+        # Android API 34+. Rather than pattern-matching the generated
+        # file's exact syntax (fragile — a template change silently breaks
+        # it), we append our own android{} override block. Both Groovy and
+        # Kotlin DSL allow calling android{} more than once in one file;
+        # the last assignment for each property always wins, so this is
+        # guaranteed to take effect no matter what the template contains.
+        run: |
+          if [ -f android/app/build.gradle.kts ]; then
+            cat >> android/app/build.gradle.kts << 'EOF'
+
+android {
+    compileSdk = 36
+    defaultConfig {
+        targetSdk = 36
+    }
+}
+EOF
+            echo "Appended override to build.gradle.kts"
+          elif [ -f android/app/build.gradle ]; then
+            cat >> android/app/build.gradle << 'EOF'
+
+android {
+    compileSdkVersion 36
+    defaultConfig {
+        targetSdkVersion 36
+    }
+}
+EOF
+            echo "Appended override to build.gradle"
+          else
+            echo "::error::No android/app/build.gradle(.kts) found — Android scaffolding generation must have failed."
+            exit 1
+          fi
 
       - name: Install dependencies
         run: flutter pub get
