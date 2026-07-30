@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/models.dart';
 import '../theme.dart';
 
@@ -62,9 +63,11 @@ class EmergencyAlertScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {
-                    // In a real deployment this could launch a dialer
-                    // to the national emergency number via url_launcher.
+                  onPressed: () async {
+                    final uri = Uri.parse('tel:999');
+                    if (await canLaunchUrl(uri)) {
+                      await launchUrl(uri);
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,

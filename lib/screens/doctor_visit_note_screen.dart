@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import '../data/data_repository.dart';
@@ -25,7 +26,7 @@ enum _NoteStep { pickSymptom, questions, summary }
 
 class _DoctorVisitNoteScreenState extends State<DoctorVisitNoteScreen> {
   final repo = DataRepository.instance;
-  final _screenshotController = ScreenshotController();
+  final _repaintKey = GlobalKey();
 
   _NoteStep _step = _NoteStep.pickSymptom;
   SymptomOption? _selectedSymptom;
@@ -136,7 +137,7 @@ class _DoctorVisitNoteScreenState extends State<DoctorVisitNoteScreen> {
         );
       case _NoteStep.summary:
         return _SummaryStep(
-          screenshotController: _screenshotController,
+          repaintKey: _repaintKey,
           symptom: _selectedSymptom!,
           answers: _answers,
           isExporting: _isExporting,
@@ -146,8 +147,13 @@ class _DoctorVisitNoteScreenState extends State<DoctorVisitNoteScreen> {
     }
   }
 
-  Future<Uint8List?> _captureCard() {
-    return _screenshotController.capture(pixelRatio: 3);
+  Future<Uint8List?> _captureCard() async {
+    final boundary = _repaintKey.currentContext?.findRenderObject()
+        as RenderRepaintBoundary?;
+    if (boundary == null) return null;
+    final image = await boundary.toImage(pixelRatio: 3);
+    final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    return byteData?.buffer.asUint8List();
   }
 
   Future<void> _handleSaveImage() async {
@@ -384,7 +390,7 @@ class _OptionChip extends StatelessWidget {
 // ---------- Step 3: summary + export ----------
 
 class _SummaryStep extends StatelessWidget {
-  final ScreenshotController screenshotController;
+  final GlobalKey repaintKey;
   final SymptomOption symptom;
   final List<VisitNoteAnswer> answers;
   final bool isExporting;
@@ -392,7 +398,7 @@ class _SummaryStep extends StatelessWidget {
   final VoidCallback onSavePdf;
 
   const _SummaryStep({
-    required this.screenshotController,
+    required this.repaintKey,
     required this.symptom,
     required this.answers,
     required this.isExporting,
@@ -406,8 +412,8 @@ class _SummaryStep extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       children: [
         Center(
-          child: Screenshot(
-            controller: screenshotController,
+          child: RepaintBoundary(
+            key: repaintKey,
             child: SummaryCardWidget(
               mainSymptomBn: symptom.nameBn,
               answers: answers,
