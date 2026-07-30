@@ -35,10 +35,10 @@ class SummaryCardWidget extends StatelessWidget {
         children: [
           const Row(
             children: [
-              const Icon(Icons.local_hospital_rounded,
+              Icon(Icons.local_hospital_rounded,
                   color: AppColors.primary, size: 22),
-              const SizedBox(width: 8),
-              const Expanded(
+              SizedBox(width: 8),
+              Expanded(
                 child: Text(
                   'Doctor Visit Summary Card',
                   style: TextStyle(
