@@ -10,11 +10,11 @@ subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 
-// Intercept plugin addition to force compileSdkVersion 34 for all subprojects (printing, share_plus, etc.)
-// BEFORE project evaluation begins.
-subprojects { subproject ->
-    subproject.plugins.whenPluginAdded { plugin ->
-        if (plugin.class.name.startsWith("com.android.build.gradle")) {
+// Ensure all Android subproject plugins (printing, share_plus, etc.) compile against API 34
+subprojects {
+    afterEvaluate { subproject ->
+        if (subproject.plugins.hasPlugin('com.android.application') ||
+            subproject.plugins.hasPlugin('com.android.library')) {
             subproject.android {
                 compileSdkVersion 34
             }
