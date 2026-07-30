@@ -33,7 +33,7 @@ class SummaryCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          const Row(
             children: [
               const Icon(Icons.local_hospital_rounded,
                   color: AppColors.primary, size: 22),

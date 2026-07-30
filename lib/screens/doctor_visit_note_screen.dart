@@ -268,13 +268,13 @@ class _QuestionsStep extends StatelessWidget {
         const Text('কিছু দ্রুত প্রশ্ন',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         const SizedBox(height: 16),
-        _QuestionLabel('ব্যথা/সমস্যার স্থান'),
+        const _QuestionLabel('ব্যথা/সমস্যার স্থান'),
         TextField(
           controller: painLocationController,
           decoration: _fieldDecoration('যেমন: উপরের পেটে'),
         ),
         const SizedBox(height: 16),
-        _QuestionLabel('খাবারের আগে না পরে সমস্যা বাড়ে?'),
+        const _QuestionLabel('খাবারের আগে না পরে সমস্যা বাড়ে?'),
         Wrap(
           spacing: 8,
           children: [
@@ -296,13 +296,13 @@ class _QuestionsStep extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        _QuestionLabel('বর্তমানে কোনো ওষুধ খাচ্ছেন?'),
+        const _QuestionLabel('বর্তমানে কোনো ওষুধ খাচ্ছেন?'),
         TextField(
           controller: medicationsController,
           decoration: _fieldDecoration('যেমন: প্যারাসিটামল'),
         ),
         const SizedBox(height: 16),
-        _QuestionLabel('জ্বর আছে?'),
+        const _QuestionLabel('জ্বর আছে?'),
         Wrap(
           spacing: 8,
           children: [
@@ -324,7 +324,7 @@ class _QuestionsStep extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        _QuestionLabel('অন্য কোনো মন্তব্য (ঐচ্ছিক)'),
+        const _QuestionLabel('অন্য কোনো মন্তব্য (ঐচ্ছিক)'),
         TextField(
           controller: otherNotesController,
           maxLines: 2,
