@@ -23,8 +23,8 @@ dependencies:
 
   # PDF / Image export for "Save Doctor Visit Note"
   pdf: ^3.11.0
-  printing: ^5.13.1
-  share_plus: ^9.0.0
+  printing: ^5.15.0
+  share_plus: ^11.0.0
 
   # Emergency call capability
   url_launcher: ^6.3.1
