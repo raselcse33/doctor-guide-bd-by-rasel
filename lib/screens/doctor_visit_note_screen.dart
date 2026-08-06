@@ -164,8 +164,9 @@ class _DoctorVisitNoteScreenState extends State<DoctorVisitNoteScreen> {
       final dir = await getTemporaryDirectory();
       final file = File('${dir.path}/doctor_visit_summary.png');
       await file.writeAsBytes(bytes);
-      await Share.shareXFiles([XFile(file.path)],
-          text: 'Doctor Visit Summary Card');
+      await SharePlus.instance.share(
+        ShareParams(files: [XFile(file.path)], text: 'Doctor Visit Summary Card'),
+      );
     } finally {
       if (mounted) setState(() => _isExporting = false);
     }
